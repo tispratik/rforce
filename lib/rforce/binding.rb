@@ -189,7 +189,7 @@ module RForce
 
       # decode if we have encoding
       content = decode(response)
-      content.force_encoding!('utf-8') unless content.nil?
+      content = content.force_encoding('utf-8') unless content.nil?
 
       # Check to see if INVALID_SESSION_ID was raised and try to relogin in
       if method != :login and @session_id and content =~ /sf:INVALID_SESSION_ID/
